@@ -1,0 +1,53 @@
+name: Run trigger
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  slashCommandDispatch:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/github-script@v3
+      id: get-pr
+      with:
+        script: |
+          const request = {
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number
+          }
+          core.info(`Getting PR #${request.pull_number} from ${request.owner}/${request.repo}`)
+          try {
+            const result = await github.pulls.get(request)
+            return result.data
+          } catch (err) {
+            core.setFailed(`Request failed with error ${err}`)
+          }
+
+    - uses: hmarr/debug-action@v2
+
+    - name: Slash Command Dispatch
+      uses: peter-evans/slash-command-dispatch@v2
+      with:
+        dispatch-type: workflow
+        token: ${{ secrets.PAT }}
+        commands: |
+          run
+          shame
+        static-args: |
+            comment-id=${{ github.event.comment.id }}
+            ref=${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
+            pull_request_number=${{ github.event.issue.number }}
+            pull_request_title=${{ github.event.issue.title }}
+            pull_request_description=${{ github.event.issue.body }}
+            pull_request_author=${{ github.event.issue.user.login }}
+
+    - name: Edit comment with error message
+      if: failure() || steps.scd.outputs.error-message
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        body: |
+          > command failed, check your syntax
+          > /run network=[eth|bsc] fn=[valid_brownie_function_name] send=[true|false] delete-branch-after-send=[true|false]

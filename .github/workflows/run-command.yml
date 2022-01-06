@@ -41,9 +41,7 @@ jobs:
       send: ${{ github.event.inputs.send }}
       pull_request_number: ${{ github.event.inputs.pull_request_number }}
       delete-branch-after-send: ${{ github.event.inputs.delete-branch-after-send }}
-      pull_request_title: ${{ github.event.inputs.pull_request_title }}
       pull_request_author: ${{ github.event.inputs.pull_request_author }}
-      pull_request_description: ${{ github.event.inputs.pull_request_description }}
       github_run_id: $GITHUB_RUN_ID
       github_repository: $GITHUB_REPOSITORY
       github_workspace: $GITHUB_WORKSPACE

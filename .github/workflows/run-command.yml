@@ -26,12 +26,8 @@ on:
       delete-branch-after-send:
         description: 'Set to true to delete the PR branch after running with send=true'
         default: 'true'
-      pull_request_title:
-        required: true
       pull_request_author:
         required: false
-      pull_request_description:
-        default: 'Empty PR description 🤡'
 
 jobs:
   dispatchCommand:

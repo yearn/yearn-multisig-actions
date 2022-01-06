@@ -1,12 +1,14 @@
 from ci.safes import safe
 
 
-def sign(nonce_arg = None, post_tx = False):
+def sign(nonce_arg = None, skip_preview = False, post_tx = False):
     def _sign(func):
         def wrapper():
             func()
             safe_tx = safe.multisend_from_receipts(safe_nonce=nonce)
-            safe.preview(safe_tx, call_trace=False)
+            if not skip_preview:
+                safe.preview(safe_tx, call_trace=False)
+
             if not post_tx and not safe.is_ci:
                 print("dry-run finished, run again with @sign(post_tx = True) to sign and submit the tx.")
             else:

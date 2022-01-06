@@ -1,6 +1,6 @@
-# strategist-ms
+# yearn-multisig-actions
 
-Collection of useful scripts to manage gnosis multisig wallets
+Collection of useful scripts and pipelines to manage gnosis multisig wallets
 - [Gnosis Safe link](https://gnosis-safe.io/app/)
 
 ## Bootstrapping

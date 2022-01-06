@@ -39,8 +39,6 @@ jobs:
             comment-id=${{ github.event.comment.id }}
             ref=${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
             pull_request_number=${{ github.event.issue.number }}
-            pull_request_title=${{ github.event.issue.title }}
-            pull_request_description=${{ github.event.issue.body }}
             pull_request_author=${{ github.event.issue.user.login }}
 
     - name: Edit comment with error message

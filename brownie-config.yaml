@@ -2,3 +2,4 @@ networks:
   default: eth-main-fork
 
 autofetch_sources: true
+dotenv: .env

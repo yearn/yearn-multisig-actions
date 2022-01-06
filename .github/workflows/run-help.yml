@@ -1,5 +1,7 @@
 name: Multisig-Run help
 
+on: [pull_request]
+
 jobs:
   runHelp:
     runs-on: ubuntu-latest

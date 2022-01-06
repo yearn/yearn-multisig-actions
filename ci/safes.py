@@ -1,10 +1,8 @@
 import os
-from dotenv import load_dotenv
 from ci.ci_override import DelegateSafe as ApeSafe
 from brownie import network
 
 
-load_dotenv()
 if network.chain.id == 250:
     safe = ApeSafe(os.getenv("FTM_SAFE_ADDRESS"))
 elif network.chain.id == 137:

@@ -7,9 +7,7 @@ on:
         required: true
       pull_request_number:
         description: 'Set to the pull request number for this command dispatch'
-        required: true
-      pull_request_title:
-        required: true
+        required: false
       pull_request_author:
         required: false
 

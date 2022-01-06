@@ -21,8 +21,11 @@ def run_brownie(args):
         print("cleaning up signal from last run")
 
     if os.path.exists(nonce_file_path):
-        print("nonce found, aborting before we trigger another tx")
-        exit(1)
+        if current_try_count == 0:
+            os.remove(nonce_file_path)
+        else:
+            print("nonce found, aborting before we trigger another tx")
+            exit(1)
 
     p = Popen(args)
 

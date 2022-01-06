@@ -1,0 +1,79 @@
+live:
+- name: Ethereum
+  networks:
+    - name: Mainnet (Infura)
+      chainid: 1
+      id: mainnet
+      host: https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+      explorer: https://api.etherscan.com/api
+- name: Polygon
+  networks:
+    - name: Mainnet
+      chainid: 137
+      id: matic-main
+      host:  https://polygon-mainnet.g.alchemy.com/v2/$POLYGON_ALCHEMY_PROJECT_ID
+      explorer: https://api.polygonscan.com/api
+- name: Binance Smart Chain
+  networks:
+    - name: Mainnet
+      chainid: 56
+      id: bsc-main
+      host: https://bsc-dataseed.binance.org
+      explorer: https://api.bscscan.com/api
+- name: Fantom Opera
+  networks:
+    - name: Mainnet
+      chainid: 250
+      id: ftm-main
+      host: https://rpc.ftm.tools
+      explorer: https://api.ftmscan.com/api
+
+development:
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: mainnet
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: eth-main-fork
+  name: Ganache-CLI (eth-Mainnet Fork)
+  timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: bsc-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: bsc-main-fork
+  name: Ganache-CLI (BSC-Mainnet Fork)
+  timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: ftm-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: ftm-main-fork
+  name: Ganache-CLI (FTM-Mainnet Fork)
+  timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: matic-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: matic-main-fork
+  name: Ganache-CLI (MATIC-Mainnet Fork)
+  timeout: 1200

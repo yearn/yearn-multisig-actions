@@ -1,0 +1,68 @@
+name: Run dispatch command
+on:
+  workflow_dispatch:
+    inputs:
+      comment-id:
+        description: 'The comment-id of the slash command'
+        required: true
+      file:
+        description: 'The file to run (e.g. main, hydrate_ci_cache)'
+        required: true
+        default: 'main'
+      network:
+        description: 'The network (e.g. eth, bsc, matic, ftm)'
+        required: true
+        default: 'eth'
+      fn:
+        description: 'Brownie function to run'
+        required: true
+      send:
+        description: 'Set to true to sign the tx and send to gnosis'
+        required: false
+        default: 'false'
+      pull_request_number:
+        description: 'Set to the pull request number for this command dispatch'
+        required: true
+      delete-branch-after-send:
+        description: 'Set to true to delete the PR branch after running with send=true'
+        default: 'true'
+      pull_request_author:
+        required: false
+
+jobs:
+  dispatchCommand:
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.11
+    with:
+      ref: ${{ github.event.inputs.ref }}
+      comment-id: ${{ github.event.inputs.comment-id }}
+      file: ${{ github.event.inputs.file }}
+      network: ${{ github.event.inputs.network }}
+      fn: ${{ github.event.inputs.fn }}
+      send: ${{ github.event.inputs.send }}
+      pull_request_number: ${{ github.event.inputs.pull_request_number }}
+      delete-branch-after-send: ${{ github.event.inputs.delete-branch-after-send }}
+      pull_request_author: ${{ github.event.inputs.pull_request_author }}
+      github_run_id: $GITHUB_RUN_ID
+      github_repository: $GITHUB_REPOSITORY
+      github_workspace: $GITHUB_WORKSPACE
+      runs_on: ubuntu-latest
+      runner_name: runner
+      brownie_cache_version: v0.0.1
+      compiler_cache_version: v0.0.1
+      close_pr: 'true'
+      check_reviews: false
+      group_telegram_chat_id: ''
+      announcement_telegram_chat_id: ''
+      failure_telegram_chat_id: ''
+      ftm_safe: ''
+      eth_safe: ''
+    secrets:
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      FTMSCAN_TOKEN: ${{ secrets.FTMSCAN_TOKEN }}
+      ETHERSCAN_TOKEN: ${{ secrets.ETHERSCAN_TOKEN }}
+      POLYGONSCAN_TOKEN: ''
+      BSCSCAN_TOKEN: ''
+      ARBISCAN_TOKEN: ''
+      SNOWTRACE_TOKEN: ''
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      PAT: ${{ secrets.PAT }}

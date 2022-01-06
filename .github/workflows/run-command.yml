@@ -60,8 +60,11 @@ jobs:
       eth_safe: ''
     secrets:
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-      POLYGONSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
       FTMSCAN_TOKEN: ${{ secrets.FTMSCAN_TOKEN }}
       ETHERSCAN_TOKEN: ${{ secrets.ETHERSCAN_TOKEN }}
+      POLYGONSCAN_TOKEN: ''
+      BSCSCAN_TOKEN: ''
+      ARBISCAN_TOKEN: ''
+      SNOWTRACE_TOKEN: ''
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
       PAT: ${{ secrets.PAT }}

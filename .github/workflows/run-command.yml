@@ -61,9 +61,9 @@ jobs:
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       FTMSCAN_TOKEN: ${{ secrets.FTMSCAN_TOKEN }}
       ETHERSCAN_TOKEN: ${{ secrets.ETHERSCAN_TOKEN }}
-      POLYGONSCAN_TOKEN: ''
-      BSCSCAN_TOKEN: ''
-      ARBISCAN_TOKEN: ''
-      SNOWTRACE_TOKEN: ''
+      POLYGONSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
+      BSCSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
+      ARBISCAN_TOKEN: ${{ secrets.ARBISCAN_TOKEN }}
+      SNOWTRACE_TOKEN: ${{ secrets.SNOWTRACE_TOKEN }}
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
       PAT: ${{ secrets.PAT }}

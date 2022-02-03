@@ -27,6 +27,12 @@ live:
       id: ftm-main
       host: https://rpc.ftm.tools
       explorer: https://api.ftmscan.com/api
+- name: Rinkeby
+  networks:
+  - chainid: 4
+    host: https://rinkeby.infura.io/v3/b795a81f7b664a4494b10fa8d0244776
+    id: rin-main
+    name: Mainnet
 
 development:
 - cmd: ganache-cli
@@ -76,4 +82,16 @@ development:
   host: http://127.0.0.1
   id: matic-main-fork
   name: Ganache-CLI (MATIC-Mainnet Fork)
+  timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: rin-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: rin-main-fork
+  name: Ganache-CLI (RINKEYBY-Mainnet Fork)
   timeout: 1200

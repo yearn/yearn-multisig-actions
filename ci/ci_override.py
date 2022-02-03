@@ -38,8 +38,10 @@ class DelegateSafe(ApeSafe):
         # default to gnosis if we don't have a custom version
         if network.chain.id not in backend_urls[self.backend_type]:
             backend_url_from_config = backend_urls["gnosis"][network.chain.id]
+            self.frontend_url = gnosis_frontend_urls["gnosis"][network.chain.id]
         else:
             backend_url_from_config = backend_urls[self.backend_type][network.chain.id]
+            self.frontend_url = gnosis_frontend_urls[self.backend_type][network.chain.id]
 
         self.base_url = base_url or backend_url_from_config
         super().__init__(address, base_url, multisend)

@@ -32,7 +32,7 @@ on:
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.13
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.16
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}
@@ -42,7 +42,6 @@ jobs:
       send: ${{ github.event.inputs.send }}
       pull_request_number: ${{ github.event.inputs.pull_request_number }}
       delete-branch-after-send: ${{ github.event.inputs.delete-branch-after-send }}
-      pull_request_author: ${{ github.event.inputs.pull_request_author }}
       github_run_id: $GITHUB_RUN_ID
       github_repository: $GITHUB_REPOSITORY
       github_workspace: $GITHUB_WORKSPACE

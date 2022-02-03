@@ -31,7 +31,7 @@ on:
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.11
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.12
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}
@@ -56,6 +56,8 @@ jobs:
       failure_telegram_chat_id: ''
       ftm_safe: ''
       eth_safe: ''
+      home_path: /home/runner
+      cached_runner: false
     secrets:
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       FTMSCAN_TOKEN: ${{ secrets.FTMSCAN_TOKEN }}

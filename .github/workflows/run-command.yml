@@ -26,12 +26,13 @@ on:
       delete-branch-after-send:
         description: 'Set to true to delete the PR branch after running with send=true'
         default: 'true'
-      pull_request_author:
+      be:
         required: false
+        description: 'backend for gnosis'
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.12
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.13
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}
@@ -54,10 +55,9 @@ jobs:
       group_telegram_chat_id: ''
       announcement_telegram_chat_id: ''
       failure_telegram_chat_id: ''
-      ftm_safe: ''
-      eth_safe: ''
       home_path: /home/runner
       cached_runner: false
+      be: ${{ github.event.inputs.be }}
     secrets:
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       FTMSCAN_TOKEN: ${{ secrets.FTMSCAN_TOKEN }}

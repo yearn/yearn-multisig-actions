@@ -33,6 +33,13 @@ live:
     host: https://rinkeby.infura.io/v3/b795a81f7b664a4494b10fa8d0244776
     id: rin-main
     name: Mainnet
+- name: Arbitrum One
+  networks:
+  - chainid: 42161
+    host: https://arb1.arbitrum.io/rpc
+    id: arb-main
+    name: Mainnet
+    explorer: https://api.arbiscan.io/api
 
 development:
 - cmd: ganache-cli
@@ -95,3 +102,14 @@ development:
   id: rin-main-fork
   name: Ganache-CLI (RINKEYBY-Mainnet Fork)
   timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: arb-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: arb-main-fork
+  name: Ganache-CLI (ARBITRUMONE-Mainnet Fork)

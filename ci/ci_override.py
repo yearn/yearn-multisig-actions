@@ -21,7 +21,7 @@ gnosis_frontend_urls = {
         100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/queue',
         137: 'https://gnosis-safe.io/app/matic:{0}/transactions/queue',
         250: 'https://safe.fantom.network/#/safes/{0}/transactions',
-        42161: 'https://gnosis-safe.io/app/arbi:{0}/transactions/queue'
+        42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/queue'
     }
 }
 

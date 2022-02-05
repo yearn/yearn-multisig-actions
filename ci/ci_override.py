@@ -10,7 +10,6 @@ from brownie.network.account import LocalAccount
 # that it writes a file with the nonce. This is used to later tag
 # the pull request with a label matching the nonce
 
-# TODO: configuration file
 DELEGATE_ADDRESS = os.environ.get("DELEGATE_ADDRESS")
 home_directory = os.environ.get("HOME")
 

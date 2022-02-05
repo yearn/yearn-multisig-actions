@@ -35,16 +35,20 @@ class DelegateSafe(ApeSafe):
             'gnosis': transaction_service,
         }
 
-        # default to gnosis if we don't have a custom version
-        if network.chain.id not in backend_urls[self.backend_type]:
-            backend_url_from_config = backend_urls["gnosis"][network.chain.id]
-            self.frontend_url = gnosis_frontend_urls["gnosis"][network.chain.id]
+        # default to gnosis if we don't have a yearn version
+        if network.chain.id in backend_urls["gnosis"]:
+            if network.chain.id not in backend_urls[self.backend_type]:
+                backend_url_from_config = backend_urls["gnosis"][network.chain.id]
+                self.frontend_url = gnosis_frontend_urls["gnosis"][network.chain.id]
+            else:
+                backend_url_from_config = backend_urls[self.backend_type][network.chain.id]
+                self.frontend_url = gnosis_frontend_urls[self.backend_type][network.chain.id]
         else:
-            backend_url_from_config = backend_urls[self.backend_type][network.chain.id]
-            self.frontend_url = gnosis_frontend_urls[self.backend_type][network.chain.id]
+            backend_url_from_config = backend_urls["gnosis"][1]
+            self.frontend_url = gnosis_frontend_urls["gnosis"][1]
 
         self.base_url = base_url or backend_url_from_config
-        super().__init__(address, base_url, multisend)
+        super().__init__(address, base_url=self.base_url, multisend=multisend)
 
     @property
     def is_ci(self):

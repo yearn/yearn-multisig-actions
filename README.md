@@ -1,7 +1,6 @@
 # yearn-multisig-actions
 
-Collection of useful scripts and pipelines to delegate transactions to gnosis multisig wallets
-- [Gnosis Safe link](https://gnosis-safe.io/app/)
+Template repository for automating delegate transactions to [Gnosis Safe](https://gnosis-safe.io/app/) multisig wallets through Github Actions
 
 ## Bootstrapping
 If you have downloaded this template repository, you need to fill in some config values and add some repository secrets.
@@ -45,10 +44,10 @@ Follow the process steps below for queuing transaction to your multisig
 2. Create PR on new branch
 3. Add a comment on PR to trigger bot to dry-run the txn:
     ```
-    /run file=[main|../ci/hydrate_ci_cache] fn=[name_of_fxn] network=[eth|bsc|matic|ftm]
+    /run file=[main|hydrate_ci_cache] fn=[name_of_fxn] network=[eth|bsc|matic|ftm|rin|arb]
     ```
-    Note: remove the [ ] symbols, e.g. /run fn=run_example network=matie
-    file defaults to main, so you can omit it usually
+    Note: remove the [ ] symbols, e.g. /run fn=run_example network=matic
+    The file param defaults to main, so you can usually omit it
 
     - The GitHub action runner will respond with:
     - a reply comment with link to the [action which was triggered](https://github.com/yearn/strategist-ms/actions/)
@@ -59,7 +58,7 @@ Follow the process steps below for queuing transaction to your multisig
 4. After successful dry run, get a peer review
 5. When peer review is complete, they can indicate it by using GitHub runner bot to queue the transaction in Gnosis. This is done by adding same comment as step #3, but this time with "send=true"
     ```
-    /run file=[main|hydrate_ci_cache] network=[eth|bsc|matic|ftm] fn=[name_of_fxn] send=[true|false] delete-branch-after-send=[true|false]
+    /run file=[main|hydrate_ci_cache] fn=[name_of_fxn] network=[eth|bsc|matic|ftm|rin|arb] send=[true|false] delete-branch-after-send=[true|false]
     ```
     - delete-branch-after-send defaults to true, if you don't want your branch deleted, then set delete-branch-after-send=false
 6. After a successful run with send=true, you can track a Gnosis TX back to its PR and original code by going to https://github.com/yearn/strategist-ms/labels and searching for the nonce number and clicking the matching nonce Github label.

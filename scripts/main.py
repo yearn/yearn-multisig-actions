@@ -1,7 +1,7 @@
-import ci.ci_override
-from ci.ci_override import DelegateSafe as ApeSafe
-from ci.safes import safe
-from ci.sign import sign
+import multisig_ci.ci_override
+from multisig_ci.ci_override import DelegateSafe as ApeSafe
+from multisig_ci.safes import safe
+from multisig_ci.sign import sign
 
 
 @sign

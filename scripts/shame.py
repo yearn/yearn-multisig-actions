@@ -1,5 +1,5 @@
 from brownie import *
-from ci.safes import safe
+from multisig_ci.safes import safe
 import requests
 from contextlib import redirect_stdout
 import os

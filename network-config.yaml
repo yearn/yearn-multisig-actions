@@ -71,7 +71,7 @@ development:
     accounts: 10
     evm_version: istanbul
     fork: ftm-main
-    gas_limit: 12000000
+    gas_limit: 8500000
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1

@@ -5,7 +5,7 @@ live:
       chainid: 1
       id: mainnet
       host: https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID
-      explorer: https://api.etherscan.com/api
+      explorer: https://api.etherscan.io/api
 - name: Polygon
   networks:
     - name: Mainnet

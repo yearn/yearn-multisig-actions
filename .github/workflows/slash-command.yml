@@ -47,12 +47,6 @@ jobs:
       with:
         comment-id: ${{ github.event.comment.id }}
         body: |
-    - name: Edit comment with error message
-      if: failure() || steps.scd.outputs.error-message
-      uses: peter-evans/create-or-update-comment@v1
-      with:
-        comment-id: ${{ github.event.comment.id }}
-        body: |
           > command failed, first check your syntax
           > /robowoofy network=[eth|bsc] fn=[valid_brownie_function_name] send=[true|false] delete-branch-after-send=[true|false]
           > If that looks good, make sure you have write access on this repository.

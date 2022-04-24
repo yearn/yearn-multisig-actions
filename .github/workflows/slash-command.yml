@@ -29,6 +29,7 @@ jobs:
 
     - name: Slash Command Dispatch
       uses: peter-evans/slash-command-dispatch@v2
+      id: scd
       with:
         dispatch-type: workflow
         token: ${{ secrets.PAT }}
@@ -46,5 +47,13 @@ jobs:
       with:
         comment-id: ${{ github.event.comment.id }}
         body: |
-          > command failed, check your syntax
-          > /run network=[eth|bsc] fn=[valid_brownie_function_name] send=[true|false] delete-branch-after-send=[true|false]
+    - name: Edit comment with error message
+      if: failure() || steps.scd.outputs.error-message
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        body: |
+          > command failed, first check your syntax
+          > /robowoofy network=[eth|bsc] fn=[valid_brownie_function_name] send=[true|false] delete-branch-after-send=[true|false]
+          > If that looks good, make sure you have write access on this repository.
+          > Also, make sure you are not running this from a repository fork. Robowoofy must be ran from branch on the repo.

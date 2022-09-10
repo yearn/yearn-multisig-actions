@@ -32,7 +32,7 @@ on:
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.0.24
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.2.26
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}
@@ -42,19 +42,12 @@ jobs:
       send: ${{ github.event.inputs.send }}
       pull_request_number: ${{ github.event.inputs.pull_request_number }}
       delete-branch-after-send: ${{ github.event.inputs.delete-branch-after-send }}
-      github_run_id: $GITHUB_RUN_ID
-      github_repository: $GITHUB_REPOSITORY
-      github_workspace: $GITHUB_WORKSPACE
-      runs_on: ubuntu-latest
-      runner_name: runner
-      brownie_cache_version: v0.0.1
-      compiler_cache_version: v0.0.1
-      close_pr: 'true'
-      check_reviews: false
       group_telegram_chat_id: ''
       announcement_telegram_chat_id: ''
       failure_telegram_chat_id: ''
-      home_path: /home/runner
+      runs_on: ubuntu-latest
+      close_pr: 'true'
+      check_reviews: false
       cached_runner: false
       be: ${{ github.event.inputs.be }}
     secrets:

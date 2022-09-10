@@ -16,7 +16,7 @@ You can generate a new delegate using the brownie console. Before you start, mak
 
 Modify scripts/delegates.py with your safe and delegator details.
 
-To create and add a new delegate, run `brownie run delegates create_and_add_delegate`
+To create and add a new delegate, run `brownie run delegates create_and_add_delegate`. Note: adjust base url if you need to ue a network other than Ethereum.
 
 To add an existing account as a delegate, run `brownie run delegates add_delegate_from_existing_address <address>`
 
@@ -25,10 +25,10 @@ If you want to add a delegate via a UI, you can also use https://gnosis-safe-del
 ### Secrets
 Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/secrets/actions
 
-1. PAT - generate personal access token. Go to https://github.com/settings/tokens/new and click repo for scopes. Make sure to reset this secret when the PAT expires.
-2. {NETWORK}SCAN_TOKEN - Define multiple secrets where {NETWORK} can be ETHER, FTM, SNOW, BSC, ARBI, or POLYGON. You can generate these tokens by making an account at the respective sites (e.g. etherscan.io, ftmscan.com, etc, etc). If you don't need a token for a given network, then either set the secret to something random or edit run-command.yml to pass in '' for the token you don't need.
-3. TELEGRAM_TOKEN - This is the token for your telegram bot that will send messages to channels. To create a bot go to: https://core.telegram.org/bots. If you are in the yearn org, contact kx9x for the robowoofy token.
-4. PRIVATE_KEY - Private key for your delegate (get this from the previous step where you added your delegate account)
+1. `PAT` - generate personal access token. Go to https://github.com/settings/tokens/new and click repo for scopes. Make sure to reset this secret when the PAT expires.
+2. `{NETWORK}SCAN_TOKEN` - Define multiple secrets where {NETWORK} can be ETHER, FTM, SNOW, BSC, ARBI, or POLYGON. You can generate these tokens by making an account at the respective sites (e.g. etherscan.io, ftmscan.com, etc, etc). If you don't need a token for a given network, then either set the secret to something random or edit run-command.yml to pass in '' for the token you don't need.
+3. `TELEGRAM_TOKEN` - This is the token for your telegram bot that will send messages to channels. To create a bot go to: https://core.telegram.org/bots. If you are in the yearn org, contact kx9x for the robowoofy token.
+4. `PRIVATE_KEY` - Private key for your delegate (get this from the previous step where you added your delegate account)
 
 ### Config values
 1. Fill in the telegram channel ids in run-command.yml. 
@@ -37,7 +37,7 @@ Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/sec
 
     Alternatively, you can message @username_to_id_bot on Telegram to find a chat id.
 
-1. Fill in everything in the .env file.
+1. Fill in everything in the .env file. Leave placeholder values for any safes on networks you don't need.
 
 Optional:
 Fill in scripts/shame.py with a mapping of addresses to signer names for the /shame command.

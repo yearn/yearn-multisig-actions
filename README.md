@@ -31,7 +31,9 @@ Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/sec
 4. PRIVATE_KEY - Private key for your delegate (get this from the previous step where you added your delegate account)
 
 ### Config values
-Fill in the telegram channel ids in run-command.yml. You can find these ids by opening your chat in telegram web, taking the number from the url, and adding a 100 between the - and the number. For example, -3456789 would become -1003456789. Announcement and group chats allow you to notify 2 seperate channels. Leave telegram chat ids blank if you don't want notifications.
+Fill in the telegram channel ids in run-command.yml. 
+
+You can find these ids by opening your chat in telegram web, taking the number from the url, and adding a `100` between the - and the number. For example, `-3456789` would become `-1003456789`. Announcement and group chats allow you to notify 2 seperate channels. Leave telegram chat ids blank if you don't want notifications.
 
 Alternatively, you can message @username_to_id_bot on Telegram to find a chat id.
 

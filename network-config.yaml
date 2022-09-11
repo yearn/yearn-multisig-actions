@@ -40,6 +40,14 @@ live:
     id: arb-main
     name: Mainnet
     explorer: https://api.arbiscan.io/api
+- name: Goerli
+  networks:
+  - chainid: 5
+    host: https://goerli.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+    id: gor-main
+    name: Mainnet
+    multicall2: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696'
+    explorer: https://api-goerli.etherscan.io/api
 
 development:
 - cmd: ganache-cli
@@ -113,3 +121,14 @@ development:
   host: http://127.0.0.1
   id: arb-main-fork
   name: Ganache-CLI (ARBITRUMONE-Mainnet Fork)
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: gor-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: gor-main-fork
+  name: Ganache-CLI (Goreli-Mainnet Fork)

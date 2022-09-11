@@ -19,11 +19,11 @@ You can generate a new delegate using the brownie console. Before you start, mak
 
 Modify scripts/delegates.py with your safe and delegator details.
 
-To create and add a new delegate, run `brownie run delegates create_and_add_delegate`. Note: adjust base url if you need to ue a network other than Ethereum.
+To create and add a new delegate, run `brownie run delegates create_and_add_delegate`. Note: adjust base url if you need to ue a network other than Ethereum. Also, make note of the private key that is printed for the delegate, you will need that later.
 
 To add an existing account as a delegate, run `brownie run delegates add_delegate_from_existing_address <address>`
 
-If you want to add a delegate via a UI, you can also use https://gnosis-safe-delegate.vercel.app/
+If you want to add a delegate via a UI, you can also use https://gnosis-safe-delegate.vercel.app/. Just create a new throwaway private key for the delegate, you will need it later.
 
 ### Secrets
 Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/secrets/actions

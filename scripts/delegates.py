@@ -5,11 +5,12 @@ from brownie import *
 from brownie.network.account import LocalAccount
 from eth_account import Account
 
+# BASE_URL = "https://safe-transaction.goerli.gnosis.io/api/vi" <- for goerli
 BASE_URL = "https://safe-transaction.gnosis.io/api/v1"
 
 ## Modify values here
 # 1. Add your safe
-safe = web3.ens.resolve("web.ychad.eth") ## TODO: Replace with your safe address
+safe = "" ## TODO: Replace with your safe address
 
 
 # 2. Add your delegator. This account needs to be a owner of the safe

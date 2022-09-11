@@ -3,7 +3,11 @@
 Template repository for automating delegate transactions to [Gnosis Safe](https://gnosis-safe.io/app/) multisig wallets through Github Actions
 
 ## Bootstrapping
-If you have downloaded this template repository, you need to fill in some config values and add some repository secrets.
+NOTE: Please make sure your copy of this repository is private, not public when you use this template! Super important! You don't want randoms queuing TXs to your Gnosis Safe.
+
+1. Fork [yearn-workflows](https://github.com/yearn/yearn-workflows/fork), this should be public and you don't need to change it. You just need a fork of this because Github runners can only read workflows within the same organization/account.
+2.
+3. If you have downloaded this template repository, you need to fill in some config values and add some repository secrets. More details below.
 
 #### Adding a delegate account
 Generate a private key for your multisig delegate. Do not use this private key for anything else. We recommend that you just throw it away once you add the secret. Anyone with access to your repo and the actions will be able to take this private key, so don't make any assumptions.

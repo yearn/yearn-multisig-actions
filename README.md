@@ -103,13 +103,3 @@ Run a multisig tx function on FTM
 ```
 brownie run main run_example --network ftm-main-fork
 ```
-
-## Hydrating the compiler cache
-
-This is important if you want fast runs.
-
-1. In run-command.yml, bump compiler_cache_version by 1 (i.e. v0.0.1 to v0.0.2)
-2. Check this change in your master/main branch
-3. Create a PR from master into a random branch. This is important. Master has to be the base branch for this PR.
-4. Comment "/run fn=hydrate_compiler_cache"
-5. After this command finishes, you will have all vyper and solc compilers in your cache for each subsequent run.

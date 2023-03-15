@@ -30,7 +30,7 @@ live:
 - name: Rinkeby
   networks:
   - chainid: 4
-    host: https://rinkeby.infura.io/v3/b795a81f7b664a4494b10fa8d0244776
+    host: https://rinkeby.infura.io/v3/$WEB3_INFURA_PROJECT_ID
     id: rin-main
     name: Mainnet
 - name: Arbitrum One

@@ -6,7 +6,7 @@ from brownie.network.account import LocalAccount
 from eth_account import Account
 
 # BASE_URL = "https://safe-transaction.goerli.gnosis.io/api/vi" <- for goerli
-BASE_URL = "https://safe-transaction.gnosis.io/api/v1"
+BASE_URL = "https://safe-transaction-base.safe.global/api/v1"
 
 ## Modify values here
 # 1. Add your safe
@@ -37,12 +37,12 @@ def list_delegates(safe: str):
 def make_payload(safe: str, delegate: str, delegator: Account, label: str = None):
     message = web3.keccak(text=delegate + str(int(time() // 3600)))
     signature = delegator.signHash(message).signature.hex()
-    return {"safe": safe, "delegate": delegate, "signature": signature, "label": label}
+    return {"safe": safe, "delegate": delegate, "delegator": delegator.address, "signature": signature, "label": label}
 
 
 def add_delegate(safe: str, delegate: str, delegator: Account, label: str = None):
     payload = make_payload(safe, delegate, delegator, label)
-    response = requests.post(f"{BASE_URL}/safes/{safe}/delegates/", json=payload)
+    response = requests.post(f"{BASE_URL}/delegates/", json=payload)
     color = "green" if response.ok else "red"
     print(f"{response.status_code}: {response.text}")
 
@@ -60,6 +60,5 @@ def create_and_add_delegate():
 def add_delegate_from_existing_address(address):
     add_delegate(safe, address, delegator, label="Robowoofy")
     print("Delegate Address: ", address)
-    print()
     print("List of Delegates:")
     print (list_delegates(safe))

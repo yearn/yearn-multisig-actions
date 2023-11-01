@@ -32,7 +32,7 @@ on:
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.5.2
+    uses: morphex-labs/morphex-workflows/.github/workflows/roboanimals-workflow.yml@v0.5.2
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}
@@ -57,6 +57,7 @@ jobs:
       POLYGONSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
       BSCSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
       ARBISCAN_TOKEN: ${{ secrets.ARBISCAN_TOKEN }}
+      BASESCAN_TOKEN: ${{ secrets.BASESCAN_TOKEN }}
       SNOWTRACE_TOKEN: ${{ secrets.SNOWTRACE_TOKEN }}
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
       PAT: ${{ secrets.PAT }}

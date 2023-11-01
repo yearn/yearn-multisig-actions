@@ -57,6 +57,7 @@ jobs:
       POLYGONSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
       BSCSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
       ARBISCAN_TOKEN: ${{ secrets.ARBISCAN_TOKEN }}
+      BASESCAN_TOKEN: ${{ secrets.BASESCAN_TOKEN }}
       SNOWTRACE_TOKEN: ${{ secrets.SNOWTRACE_TOKEN }}
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
       PAT: ${{ secrets.PAT }}

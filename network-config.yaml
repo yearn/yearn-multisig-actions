@@ -48,6 +48,13 @@ live:
     name: Mainnet
     multicall2: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696'
     explorer: https://api-goerli.etherscan.io/api
+- name: Base
+  networks:
+  - chainid: 8453
+    host: https://base.llamarpc.com
+    id: base-main
+    name: Mainnet
+    explorer: https://api.basescan.org/api
 
 development:
 - cmd: ganache-cli
@@ -85,6 +92,18 @@ development:
   host: http://127.0.0.1
   id: ftm-main-fork
   name: Ganache-CLI (FTM-Mainnet Fork)
+  timeout: 1200
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: base-main
+    gas_limit: 8500000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: base-main-fork
+  name: Ganache-CLI (Base-Mainnet Fork)
   timeout: 1200
 - cmd: ganache-cli
   cmd_settings:

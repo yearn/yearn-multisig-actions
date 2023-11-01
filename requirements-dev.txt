@@ -7,4 +7,4 @@ regex==2021.10.8
 tomli==1.2.1
 tenacity==8.0.1
 psutil==5.8.0 
-multisig-ci==0.4.6
+multisig-ci==0.8.3

@@ -51,10 +51,7 @@ Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/sec
 
     Alternatively, you can message @username_to_id_bot on Telegram to find a chat id.
 
-1. Fill in everything in the .env file. Leave placeholder values for any safes on networks you don't need.
-
-Optional:
-Fill in scripts/shame.py with a mapping of addresses to signer names for the /shame command.
+1. Fill in values in the .env file. For any safes on networks you don't need, feel free to leave those blank. Some fields are marked optional.
 
 ## Usage
 Follow the process steps below for queuing transactions to your multisig

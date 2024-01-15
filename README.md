@@ -42,7 +42,7 @@ NOTE: Please ensure your copy of this repository is private, not public, when yo
 ### Secrets
 Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/secrets/actions. Note: replace {org} and {repo} with your information.
 
-1. `PAT` - generate a personal access token. Go to https://github.com/settings/tokens/new and click repo for scopes. Make sure to reset this secret when the PAT expires.
+1. `PAT` - generate a personal access token. Go to https://github.com/settings/tokens/new and click repo for scopes. Make sure to reset this secret when the PAT expires. Note: if you are in the Yearn org, ask @kx9x for a PAT from the Robowoofy Github accout instead of using your own.
 2. `{NETWORK}SCAN_TOKEN` - Define multiple secrets where {NETWORK} can be ETHER, FTM, SNOW, BSC, ARBI, or POLYGON. You can generate these tokens by making an account at the respective sites (e.g. etherscan.io, ftmscan.com, etc, etc). If you don't need a token for a given network, then either set the secret to something random or edit run-command.yml to pass in '' for the token you don't need.
 3. `TELEGRAM_TOKEN` - This is the token for your telegram bot that will send messages to channels. To create a bot go to: https://core.telegram.org/bots. If you are in the yearn org, contact kx9x for the robowoofy token.
 4. `PRIVATE_KEY` - Private key for your delegate (get this from the previous step where you added your delegate account)

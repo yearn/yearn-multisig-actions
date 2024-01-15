@@ -5,3 +5,4 @@ build/
 reports/
 .DS_Store
 .venv
+.python_version

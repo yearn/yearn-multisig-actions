@@ -1,3 +1,4 @@
+# Note: you are free to use any host or explorer you like, just change them here.
 live:
 - name: Ethereum
   networks:
@@ -27,12 +28,6 @@ live:
       id: ftm-main
       host: https://rpc.ftm.tools
       explorer: https://api.ftmscan.com/api
-- name: Rinkeby
-  networks:
-  - chainid: 4
-    host: https://rinkeby.infura.io/v3/$WEB3_INFURA_PROJECT_ID
-    id: rin-main
-    name: Mainnet
 - name: Arbitrum One
   networks:
   - chainid: 42161
@@ -48,18 +43,123 @@ live:
     name: Mainnet
     multicall2: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696'
     explorer: https://api-goerli.etherscan.io/api
+- name: gnosis-chain
+  networks:
+  - chainid: 100
+    host: https://rpc.gnosischain.com
+    id: gc-main
+    name: gnosis-chain
+    explorer: https://api.gnosisscan.io/api
+- name: Optimism
+  networks:
+  - chainid: 10
+    host: https://rpc.ankr.com/optimism
+    id: opti-main
+    name: Mainnet
+    explorer: https://optimistic.etherscan.io/api
+- name: Base
+  networks:
+  - chainid: 8453
+    host: https://base.llamarpc.com
+    id: base-main
+    name: Mainnet
+    explorer: https://api.basescan.org/api
 
 development:
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: mainnet
+    gas_limit: 30000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: eth-main-fork
+  name: Anvil-CLI (eth-Mainnet Fork)
+  timeout: 1200
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: bsc-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: bsc-main-fork
+  name: Ganache-CLI (BSC-Mainnet Fork)
+  timeout: 1200
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: ftm-main
+    gas_limit: 10000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: ftm-main-fork
+  name: Anvil-CLI (FTM-Mainnet Fork)
+  timeout: 1200
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: matic-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: matic-main-fork
+  name: Anvil-CLI (MATIC-Mainnet Fork)
+  timeout: 1200
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: gor-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: gor-main-fork
+  name: Anvil-CLI (Goreli-Mainnet Fork)
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: gc-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: gc-main-fork
+  name: Anvil-CLI (gnosis-chain Fork)
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: opti-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: opti-main-fork
+  name: Anvil-CLI (Optimism-Mainnet Fork)
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    fork: base-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: base-main-fork
+  name: Anvil-CLI (Base-Mainnet Fork)
 - cmd: ganache-cli
   cmd_settings:
     accounts: 10
     evm_version: istanbul
     fork: mainnet
-    gas_limit: 12000000
+    gas_limit: 30000000
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
-  id: eth-main-fork
+  id: eth-ganache-main-fork
   name: Ganache-CLI (eth-Mainnet Fork)
   timeout: 1200
 - cmd: ganache-cli
@@ -71,7 +171,7 @@ development:
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
-  id: bsc-main-fork
+  id: bsc-ganache-main-fork
   name: Ganache-CLI (BSC-Mainnet Fork)
   timeout: 1200
 - cmd: ganache-cli
@@ -79,11 +179,11 @@ development:
     accounts: 10
     evm_version: istanbul
     fork: ftm-main
-    gas_limit: 8500000
+    gas_limit: 10000000
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
-  id: ftm-main-fork
+  id: ftm-ganache-main-fork
   name: Ganache-CLI (FTM-Mainnet Fork)
   timeout: 1200
 - cmd: ganache-cli
@@ -95,21 +195,20 @@ development:
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
-  id: matic-main-fork
+  id: matic-ganache-main-fork
   name: Ganache-CLI (MATIC-Mainnet Fork)
   timeout: 1200
 - cmd: ganache-cli
   cmd_settings:
     accounts: 10
     evm_version: istanbul
-    fork: rin-main
+    fork: gor-main
     gas_limit: 12000000
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
-  id: rin-main-fork
-  name: Ganache-CLI (RINKEYBY-Mainnet Fork)
-  timeout: 1200
+  id: gor-ganache-main-fork
+  name: Ganache-CLI (Goreli-Mainnet Fork)
 - cmd: ganache-cli
   cmd_settings:
     accounts: 10
@@ -125,10 +224,32 @@ development:
   cmd_settings:
     accounts: 10
     evm_version: istanbul
-    fork: gor-main
+    fork: gc-main
     gas_limit: 12000000
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
-  id: gor-main-fork
-  name: Ganache-CLI (Goreli-Mainnet Fork)
+  id: gc-ganache-main-fork
+  name: Ganache-CLI (gnosis-chain Fork)
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: opti-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: opti-ganache-main-fork
+  name: Ganache-CLI (Optimism-Mainnet Fork)
+- cmd: ganache-cli
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: base-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: base-ganache-main-fork
+  name: Ganache-CLI (Base-Mainnet Fork)

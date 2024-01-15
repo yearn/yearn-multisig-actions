@@ -5,7 +5,7 @@ def pending_nonce_override(self) -> int:
     """
     Subsequent nonce which accounts for pending transactions in the transaction service.
     """
-    url = urljoin(self.base_url, f'/api/v1/safes/{self.address}/multisig-transactions/')
+    url = urljoin(self.transaction_service.base_url, f'/api/v1/safes/{self.address}/multisig-transactions/')
     results = requests.get(url).json()['results']
     # loop through the TXs return and detect a gap in nonce
     # if there is a gap, return a nonce so we fill that gap

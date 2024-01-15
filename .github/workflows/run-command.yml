@@ -26,13 +26,10 @@ on:
       delete-branch-after-send:
         description: 'Set to true to delete the PR branch after running with send=true'
         default: 'true'
-      be:
-        required: false
-        description: 'backend for gnosis'
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.5.2
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.7.7
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}
@@ -49,7 +46,7 @@ jobs:
       close_pr: 'true'
       check_reviews: false
       cached_runner: false
-      be: ${{ github.event.inputs.be }}
+      be: gnosis
     secrets:
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       FTMSCAN_TOKEN: ${{ secrets.FTMSCAN_TOKEN }}

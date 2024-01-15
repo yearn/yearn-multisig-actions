@@ -69,7 +69,7 @@ Follow the process steps below for queuing transactions to your multisig
 4. After a successful dry run, get a peer review
 5. When peer review is complete, they can indicate it by using GitHub runner bot to queue the transaction in Gnosis. To do this, add the same comment as step #3 but this time with "send=true"
     ```
-    /run file=[main|hydrate_ci_cache] fn=[name_of_fxn] network=[eth|bsc|matic|ftm|rin|arb] send=[true|false] delete-branch-after-send=[true|false]
+    /run file=[main] fn=[name_of_fxn] network=[eth|bsc|matic|ftm|rin|arb] send=[true|false] delete-branch-after-send=[true|false]
     ```
     - delete-branch-after-send defaults to true. If you don't want your branch deleted, then set delete-branch-after-send=false
 6. After a successful run with send=true, you can track a Gnosis TX back to its PR and original code by going to https://github.com/yearn/strategist-ms/labels and searching for the nonce number, then clicking the matching nonce Github label.
@@ -78,28 +78,52 @@ Follow the process steps below for queuing transactions to your multisig
 
 
 ## Installation
-You need [Python 3.8](https://www.python.org/downloads/release/python-389/) and [pip](https://pip.pypa.io/en/stable/installation/) installed
 
-Install dependencies
-
+### Run the [pyenv installer](https://github.com/pyenv/pyenv#automatic-installer)
 ```
-pip install -r requirements-dev.txt
+curl https://pyenv.run | bash
 ```
 
-You also need [ganache-cli](https://www.npmjs.com/package/ganache-cli) installed, and [Node.js](https://nodejs.org/en/)
-
+### Install python 3.10
 ```
-npm install -g ganache-cli
-```
-
-Run a multisig tx function on Ethereum
-
-```
-brownie run main run_example --network eth-main-fork
+pyenv install 3.10
 ```
 
-Run a multisig tx function on FTM
+### Make a venv
+```
+pyenv virtualenv 3.10 <venv-name>
+```
+
+### Make it automatically activate while in the project folder
+```
+pyenv local <venv-name>
+```
+
+### Install deps
+```
+ pip install -r requirements-dev.txt 
+```
+
+It's THAT easy!
+
+### You also need anvil installed
+> curl -L https://foundry.paradigm.xyz | bash
+> $HOME/.foundry/bin/foundryup
+
+Open a new terminal and make sure Anvil exists
+> anvil --help
+
+### Now install Brownie using [pipx](https://github.com/eth-brownie/brownie#via-pipx)
 
 ```
-brownie run main run_example --network ftm-main-fork
+python -m pip install --user pipx
+python -m pipx ensurepath
+pipx install eth-brownie==1.19.2
+```
+
+Open a new terminal.
+
+Run a multisig tx function on ethereum
+```
+brownie run main example -I
 ```

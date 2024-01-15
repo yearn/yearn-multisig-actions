@@ -7,10 +7,10 @@ from multisig_ci.sign import sign
 
 
 @sign
-def run_example():
+def example():
     safe.account.transfer(safe.account, "0 ether")
 
 
 @sign(420)
-def run_override_nonce_example():
+def override_nonce_example():
     safe.account.transfer(safe.account, "0 ether")

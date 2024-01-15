@@ -13,22 +13,27 @@ NOTE: Please ensure your copy of this repository is private, not public, when yo
 2. If you have downloaded this template repository, you must fill in some config values and add some repository secrets. (see below for more details on how to do this)
 
 #### Adding a delegate account
-Generate a private key for your multisig delegate. Do NOT use this private key for anything else. We recommend you throw it away once you add the secret. Anyone with access to your repo and the actions can take this private key, so don't make any assumptions.
 
-Be ready to revoke your delegate if you see any suspicious transactions queued to it.
+1. Create a new delegate account via brownie
+ - `brownie accounts generate multi-sig-delegate`
+ - Get the private key and save it for later:
+    ```
+    brownie console
+    ```
+    ```
+    delegate = accounts.load('multi-sig-delegate')
+    print("Address: ", delegate.address)
+    print("Private Key: ", delegate.private_key)
+    ```
+    Note: Do NOT use this private key for anything else. We recommend you throw it away once you add the secret. Anyone with access to your repo and the actions can take this private key, so don't make any assumptions. Be ready to revoke your delegate if you see any suspicious transactions queued to it.
 
-You must be an owner of the safe to add a delegate to it.
-
-You can generate a new delegate using the brownie console. Before you start, make sure that you have your safe owner account in brownie: `brownie accounts new multi-sig-delegator`
-
-Modify scripts/delegates.py with your safe and delegator details.
-
-To create and add a new delegate, run `brownie run delegates create_and_add_delegate`. Note: adjust base url if you need to use a network other than Ethereum. Also, make a note of the private key that is printed for the delegate, you will need that later.
-
-To add an existing account as a delegate, run `brownie run delegates add_delegate_from_existing_address <address>`
-
-If you want to add a delegate via a UI, you can also use https://gnosis-safe-delegate.vercel.app/. Just create a new throwaway private key for the delegate, you will need it later.
-
+2. Authorize your new delegate on your safe. You must do this via an account that is a safe owner or signer.
+    - You add delegates via a UI such as https://gnosis-safe-delegate.vercel.app/
+    - Alternatively, you can import your safe owner into brownie and run a script to add the delegate:
+        - run `brownie accounts new multi-sig-delegator` to import your safe owner account
+        - open [delegates.py](scripts/delegates.py) and add in your safe address for the `safe` variable and also change the 
+        `brownie run delegates add_delegate_from_existing_address <delegate_address> --network <network>-main`. Replace `<network>` with the short name for a network, e.g. eth, opti, ftm, arb, gor, etc.
+    
 ### Secrets
 Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/secrets/actions
 

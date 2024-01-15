@@ -4,18 +4,21 @@ import requests
 from brownie import *
 from brownie.network.account import LocalAccount
 from eth_account import Account
+from brownie_safe import TransactionServiceBackport, EthereumNetworkBackport
+from gnosis.eth import EthereumClient, EthereumNetwork
 
-# BASE_URL = "https://safe-transaction.goerli.gnosis.io/api/vi" <- for goerli
-BASE_URL = "https://safe-transaction-base.safe.global/api/v1"
+ethereum_client = EthereumClient(web3.provider.endpoint_uri)
+transaction_service = TransactionServiceBackport(ethereum_client.get_network(), ethereum_client, None)
+BASE_URL = transaction_service.base_url + "/api/v1/"
+print("BASE_URL is ", BASE_URL, "\n")
+assert BASE_URL
 
 ## Modify values here
 # 1. Add your safe
-safe = "" ## TODO: Replace with your safe address
-
+safe = input(f"Please enter your safe address for network {ethereum_client.get_network()}:\n")
 
 # 2. Add your delegator. This account needs to be a owner of the safe
 _delegator = accounts.load('multi-sig-delegator') ## TODO: Load your account
-
 
 # Use the Account from eth_account to make signing hashs easier
 delegator = Account.from_key(_delegator.private_key)
@@ -43,7 +46,6 @@ def make_payload(safe: str, delegate: str, delegator: Account, label: str = None
 def add_delegate(safe: str, delegate: str, delegator: Account, label: str = None):
     payload = make_payload(safe, delegate, delegator, label)
     response = requests.post(f"{BASE_URL}/delegates/", json=payload)
-    color = "green" if response.ok else "red"
     print(f"{response.status_code}: {response.text}")
 
 
@@ -62,3 +64,4 @@ def add_delegate_from_existing_address(address):
     print("Delegate Address: ", address)
     print("List of Delegates:")
     print (list_delegates(safe))
+

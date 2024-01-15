@@ -9,7 +9,7 @@ Allows for teams to be notified in Telegram when a new transaction is queued for
 ## Bootstrapping
 NOTE: Please ensure your copy of this repository is private, not public, when you use this template! Super important! You don't want randoms queuing TXs to your Gnosis Safe.
 
-1. Set your workflow permissions to "Read and write permissions" under https://github.com/<your_org>/<your_repo>/settings/actions
+1. Set your workflow permissions to "Read and write permissions" under https://github.com/{org}/{repo}/settings/actions. Note: replace {org} and {repo} with your information.
 2. Also fork [yearn-workflows](https://github.com/yearn/yearn-workflows/fork), this should be public and you don't need to change it. You just need a fork of this because Github runners can only read workflows within the same organization/account.
 3. If you have downloaded this template repository, you must fill in some config values and add some repository secrets. (see below for more details on how to do this)
 
@@ -30,13 +30,14 @@ NOTE: Please ensure your copy of this repository is private, not public, when yo
 
 2. Authorize your new delegate on your safe. You must do this via an account that is a safe owner or signer.
     - You add delegates via a UI such as https://gnosis-safe-delegate.vercel.app/
-    - Alternatively, you can import your safe owner into brownie and run a script to add the delegate:
+    - Alternatively, if the UI doesn't work, you can import your safe owner into brownie and run a script to add the delegate:
+        - Follow the steps under [Installation](##Installation) to setup this repo for running scripts locally 
         - run `brownie accounts new multi-sig-delegator` to import your safe owner account
         - open [delegates.py](scripts/delegates.py) and add in your safe address for the `safe` variable and also change the 
         `brownie run delegates add_delegate_from_existing_address <delegate_address> --network <network>-main`. Replace `<network>` with the short name for a network, e.g. eth, opti, ftm, arb, gor, etc.
     
 ### Secrets
-Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/secrets/actions
+Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/secrets/actions. Note: replace {org} and {repo} with your information.
 
 1. `PAT` - generate a personal access token. Go to https://github.com/settings/tokens/new and click repo for scopes. Make sure to reset this secret when the PAT expires.
 2. `{NETWORK}SCAN_TOKEN` - Define multiple secrets where {NETWORK} can be ETHER, FTM, SNOW, BSC, ARBI, or POLYGON. You can generate these tokens by making an account at the respective sites (e.g. etherscan.io, ftmscan.com, etc, etc). If you don't need a token for a given network, then either set the secret to something random or edit run-command.yml to pass in '' for the token you don't need.

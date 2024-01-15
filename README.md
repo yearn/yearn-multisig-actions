@@ -9,9 +9,12 @@ Allows for teams to be notified in Telegram when a new transaction is queued for
 ## Bootstrapping
 NOTE: Please ensure your copy of this repository is private, not public, when you use this template! Super important! You don't want randoms queuing TXs to your Gnosis Safe.
 
-1. Set your workflow permissions to "Read and write permissions" under https://github.com/{org}/{repo}/settings/actions. Note: replace {org} and {repo} with your information.
-2. Also fork [yearn-workflows](https://github.com/yearn/yearn-workflows/fork), this should be public and you don't need to change it. You just need a fork of this because Github runners can only read workflows within the same organization/account.
-3. If you have downloaded this template repository, you must fill in some config values and add some repository secrets. (see below for more details on how to do this)
+1. Set your workflow permissions to `Read and write permissions` and your actions permissions to `Allow all actions and reusable workflows` under https://github.com/{org}/{repo}/settings/actions. Note: replace {org} and {repo} with your information.
+![image](https://github.com/yearn/yearn-multisig-actions/assets/7820952/2a945da1-31be-497b-817f-0149356eaa49)
+![image](https://github.com/yearn/yearn-multisig-actions/assets/7820952/67292dc2-dc02-49d7-80fa-083b6d869552)
+
+3. Also fork [yearn-workflows](https://github.com/yearn/yearn-workflows/fork), this should be public and you don't need to change it. You just need a fork of this because Github runners can only read workflows within the same organization/account.
+4. If you have downloaded this template repository, you must fill in some config values and add some repository secrets. (see below for more details on how to do this)
 
 #### Adding a delegate account
 

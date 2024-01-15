@@ -31,7 +31,7 @@ NOTE: Please ensure your copy of this repository is private, not public, when yo
 2. Authorize your new delegate on your safe. You must do this via an account that is a safe owner or signer.
     - You add delegates via a UI such as https://gnosis-safe-delegate.vercel.app/
     - Alternatively, if the UI doesn't work, you can import your safe owner into brownie and run a script to add the delegate:
-        - Follow the steps under [Installation](##Installation) to setup this repo for running scripts locally 
+        - Follow the steps under [Installation](#Installation) to setup this repo for running scripts locally 
         - run `brownie accounts new multi-sig-delegator` to import your safe owner account
         - open [delegates.py](scripts/delegates.py) and add in your safe address for the `safe` variable and also change the 
         `brownie run delegates add_delegate_from_existing_address <delegate_address> --network <network>-main`. Replace `<network>` with the short name for a network, e.g. eth, opti, ftm, arb, gor, etc.

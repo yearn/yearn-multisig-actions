@@ -29,7 +29,7 @@ on:
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.9.1
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@8e9241742db1558c842567fa4cf08edc65f054e5
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}

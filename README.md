@@ -113,12 +113,16 @@ pyenv local <venv-name>
 
 It's THAT easy!
 
-### You also need anvil installed
-> curl -L https://foundry.paradigm.xyz | bash
-> $HOME/.foundry/bin/foundryup
+### You also need anvil installed (using a specific version as of 04/25/2024 due to a bug in foundry)
+```
+ curl -L https://foundry.paradigm.xyz | bash
+ $HOME/.foundry/bin/foundryup --version nightly-f625d0fa7c51e65b4bf1e8f7931cd1c6e2e285e9
+```
 
 Open a new terminal and make sure Anvil exists
-> anvil --help
+```
+anvil --help
+```
 
 ### Now install Brownie using [pipx](https://github.com/eth-brownie/brownie#via-pipx)
 

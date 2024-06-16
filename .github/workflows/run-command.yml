@@ -29,7 +29,7 @@ on:
 
 jobs:
   dispatchCommand:
-    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.9.8
+    uses: yearn/yearn-workflows/.github/workflows/roboanimals-workflow.yml@v0.9.9
     with:
       ref: ${{ github.event.inputs.ref }}
       comment-id: ${{ github.event.inputs.comment-id }}
@@ -48,12 +48,14 @@ jobs:
       cached_runner: false
       be: gnosis
     secrets:
-      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      BASESCAN_TOKEN: ${{ secrets.BASESCAN_TOKEN }}
       FTMSCAN_TOKEN: ${{ secrets.FTMSCAN_TOKEN }}
       ETHERSCAN_TOKEN: ${{ secrets.ETHERSCAN_TOKEN }}
       POLYGONSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
-      BSCSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
+      OPTISCAN_TOKEN: ${{ secrets.OPTISCAN_TOKEN }}
+      BSCSCAN_TOKEN: ${{ secrets.BSCSCAN_TOKEN }}
       ARBISCAN_TOKEN: ${{ secrets.ARBISCAN_TOKEN }}
       SNOWTRACE_TOKEN: ${{ secrets.SNOWTRACE_TOKEN }}
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
       PAT: ${{ secrets.PAT }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}

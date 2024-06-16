@@ -150,6 +150,17 @@ development:
   host: http://127.0.0.1
   id: base-main-fork
   name: Anvil-CLI (Base-Mainnet Fork)
+- cmd: anvil
+  cmd_settings:
+    accounts: 10
+    evm_version: istanbul
+    fork: arb-main
+    gas_limit: 12000000
+    mnemonic: brownie
+    port: 8545
+  host: http://127.0.0.1
+  id: arb-main-fork
+  name: Ganache-CLI (ARBITRUMONE-Mainnet Fork)
 - cmd: ganache-cli
   cmd_settings:
     accounts: 10
@@ -218,7 +229,7 @@ development:
     mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
-  id: arb-main-fork
+  id: arb-ganache-main-fork
   name: Ganache-CLI (ARBITRUMONE-Mainnet Fork)
 - cmd: ganache-cli
   cmd_settings:

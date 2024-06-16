@@ -7,8 +7,14 @@ from eth_account import Account
 from brownie_safe import TransactionServiceBackport, EthereumNetworkBackport
 from gnosis.eth import EthereumClient, EthereumNetwork
 
+BASE_CHAIN_ID = 8453
+
+if network.chain.id == BASE_CHAIN_ID:
+    base_url = "https://safe-transaction-base.safe.global"
+
 ethereum_client = EthereumClient(web3.provider.endpoint_uri)
-transaction_service = TransactionServiceBackport(ethereum_client.get_network(), ethereum_client, None)
+transaction_service = TransactionServiceBackport(ethereum_client.get_network(), ethereum_client, base_url)
+
 BASE_URL = transaction_service.base_url + "/api/v1/"
 print("BASE_URL is ", BASE_URL, "\n")
 assert BASE_URL

@@ -1,4 +1,4 @@
-# yearn-multisig-actions
+I'm# yearn-multisig-actions
 
 Template repository for automating delegate transactions to [Gnosis Safe](https://gnosis-safe.io/app/) multisig wallets through Github Actions
 
@@ -113,10 +113,10 @@ pyenv local <venv-name>
 
 It's THAT easy!
 
-### You also need anvil installed (using a specific version as of 04/25/2024 due to a bug in foundry)
+### You also need anvil installed
 ```
  curl -L https://foundry.paradigm.xyz | bash
- $HOME/.foundry/bin/foundryup --version nightly-f625d0fa7c51e65b4bf1e8f7931cd1c6e2e285e9
+ $HOME/.foundry/bin/foundryup
 ```
 
 Open a new terminal and make sure Anvil exists

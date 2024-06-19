@@ -46,6 +46,6 @@ jobs:
         comment-id: ${{ github.event.comment.id }}
         body: |
           > command failed, check your syntax
-          > /run network=[eth|base|opti|gc|gor|arb|ftm|matic|bsc] fn=[valid_brownie_function_name] send=[true|false] delete-branch-after-send=[true|false]
+          > /run network=[eth|base|opti|gc|arb|ftm|matic|bsc] fn=[valid_brownie_function_name] send=[true|false] delete-branch-after-send=[true|false]
           > If that looks good, make sure you have write access on this repository.
           > Also, make sure you are not running this from a repository fork. Robowoofy must be ran from branch on the repo.

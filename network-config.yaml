@@ -35,14 +35,6 @@ live:
     id: arb-main
     name: Mainnet
     explorer: https://api.arbiscan.io/api
-- name: Goerli
-  networks:
-  - chainid: 5
-    host: https://goerli.infura.io/v3/$WEB3_INFURA_PROJECT_ID
-    id: gor-main
-    name: Mainnet
-    multicall2: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696'
-    explorer: https://api-goerli.etherscan.io/api
 - name: gnosis-chain
   networks:
   - chainid: 100
@@ -66,97 +58,79 @@ live:
     explorer: https://api.basescan.org/api
 
 development:
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     fork: mainnet
     gas_limit: 30000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: eth-main-fork
   name: Anvil-CLI (eth-Mainnet Fork)
   timeout: 1200
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     fork: bsc-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: bsc-main-fork
   name: Ganache-CLI (BSC-Mainnet Fork)
   timeout: 1200
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     fork: ftm-main
     gas_limit: 10000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: ftm-main-fork
   name: Anvil-CLI (FTM-Mainnet Fork)
   timeout: 1200
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     fork: matic-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: matic-main-fork
   name: Anvil-CLI (MATIC-Mainnet Fork)
   timeout: 1200
-- cmd: anvil
-  cmd_settings:
-    accounts: 10
-    fork: gor-main
-    gas_limit: 12000000
-    mnemonic: brownie
-    port: 8545
-  host: http://127.0.0.1
-  id: gor-main-fork
-  name: Anvil-CLI (Goreli-Mainnet Fork)
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     fork: gc-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: gc-main-fork
   name: Anvil-CLI (gnosis-chain Fork)
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     fork: opti-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: opti-main-fork
   name: Anvil-CLI (Optimism-Mainnet Fork)
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     fork: base-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: base-main-fork
   name: Anvil-CLI (Base-Mainnet Fork)
-- cmd: anvil
+- cmd: anvil --steps-tracing --block-base-fee-per-gas 0 --gas-price 0
   cmd_settings:
     accounts: 10
     evm_version: istanbul
     fork: arb-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: arb-main-fork
@@ -167,7 +141,6 @@ development:
     evm_version: istanbul
     fork: mainnet
     gas_limit: 30000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: eth-ganache-main-fork
@@ -179,7 +152,6 @@ development:
     evm_version: istanbul
     fork: bsc-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: bsc-ganache-main-fork
@@ -191,7 +163,6 @@ development:
     evm_version: istanbul
     fork: ftm-main
     gas_limit: 10000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: ftm-ganache-main-fork
@@ -203,7 +174,6 @@ development:
     evm_version: istanbul
     fork: matic-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: matic-ganache-main-fork
@@ -213,20 +183,8 @@ development:
   cmd_settings:
     accounts: 10
     evm_version: istanbul
-    fork: gor-main
-    gas_limit: 12000000
-    mnemonic: brownie
-    port: 8545
-  host: http://127.0.0.1
-  id: gor-ganache-main-fork
-  name: Ganache-CLI (Goreli-Mainnet Fork)
-- cmd: ganache-cli
-  cmd_settings:
-    accounts: 10
-    evm_version: istanbul
     fork: arb-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: arb-ganache-main-fork
@@ -237,7 +195,6 @@ development:
     evm_version: istanbul
     fork: gc-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: gc-ganache-main-fork
@@ -248,7 +205,6 @@ development:
     evm_version: istanbul
     fork: opti-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: opti-ganache-main-fork
@@ -259,7 +215,6 @@ development:
     evm_version: istanbul
     fork: base-main
     gas_limit: 12000000
-    mnemonic: brownie
     port: 8545
   host: http://127.0.0.1
   id: base-ganache-main-fork

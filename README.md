@@ -37,7 +37,7 @@ NOTE: Please ensure your copy of this repository is private, not public, when yo
         - Follow the steps under [Installation](#Installation) to setup this repo for running scripts locally 
         - run `brownie accounts new multi-sig-delegator` to import your safe owner account
         - open [delegates.py](scripts/delegates.py) and add in your safe address for the `safe` variable and also change the 
-        `brownie run delegates add_delegate_from_existing_address <delegate_address> --network <network>-main`. Replace `<network>` with the short name for a network, e.g. eth, opti, ftm, arb, gor, etc.
+        `brownie run delegates add_delegate_from_existing_address <delegate_address> --network <network>-main`. Replace `<network>` with the short name for a network, e.g. eth, opti, ftm, arb, etc.
     
 ### Secrets
 Add these repository secrets. Go to https://github.com/{org}/{repo}/settings/secrets/actions. Note: replace {org} and {repo} with your information.
@@ -129,7 +129,7 @@ anvil --help
 ```
 python -m pip install --user pipx
 python -m pipx ensurepath
-pipx install eth-brownie==1.19.2
+pipx install eth-brownie==1.20.5
 ```
 
 Open a new terminal.

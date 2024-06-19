@@ -64,7 +64,7 @@ Follow the process steps below for queuing transactions to your multisig
     ```
     /run file=[main|hydrate_ci_cache] fn=[name_of_fxn] network=[eth|bsc|matic|ftm|rin|arb]
     ```
-    Note: remove the [ ] symbols, e.g. /run fn=run_example network=matic
+    Note: remove the [ ] symbols, e.g. /run fn=example network=matic
     The file param defaults to main, so you can usually omit it
 
     - The GitHub action runner will respond with:

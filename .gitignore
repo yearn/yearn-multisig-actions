@@ -6,3 +6,4 @@ reports/
 .DS_Store
 .venv
 .python_version
+settings.json

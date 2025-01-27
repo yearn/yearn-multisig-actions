@@ -1,4 +1,4 @@
-I'm# yearn-multisig-actions
+yearn-multisig-actions
 
 Template repository for automating delegate transactions to [Gnosis Safe](https://gnosis-safe.io/app/) multisig wallets through Github Actions
 

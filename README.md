@@ -109,6 +109,8 @@ pyenv local <venv-name>
 ### Install deps
 ```
  pip install -r requirements-dev.txt 
+ # eth-brownie pins old certifi/aiohttp/urllib3; override them (pip will warn, that's expected)
+ pip install -U "certifi>=2026.10.19" "aiohttp>=3.14.4" "urllib3>=2.8.0"
 ```
 
 It's THAT easy!
